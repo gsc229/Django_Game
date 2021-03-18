@@ -39,6 +39,10 @@ class Player():
 
     self.rect = (self.x, self.y, self.width, self.height)
 
+
+
+
+
 def redrawWindow(win, player):
   win.fill((255, 255, 255))
   player.draw(win)
