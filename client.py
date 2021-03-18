@@ -37,7 +37,13 @@ class Player():
     if keys[pygame.K_DOWN]:
       self.y += self.vel
 
+    
+
     self.rect = (self.x, self.y, self.width, self.height)
+
+
+
+
 
 def redrawWindow(win, player):
   win.fill((255, 255, 255))
