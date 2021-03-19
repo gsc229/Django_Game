@@ -1,18 +1,21 @@
 import socket
 
-
+# Reusable class to connect client to the server 
 class Network:
   def __init__(self):
     self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     self.server = "192.168.1.5"
     self.port = 5555
     self.addr = (self.server, self.port)
-    self.id = self.connect()
-    print(self.id)
+    self.pos = self.connect()
+  
+
+  def getPos(self):
+    return self.pos
 
   def connect(self):
-
     try:
+      # When we connect we want to send some kind of 
       self.client.connect(self.addr)
       return self.client.recv(2048).decode()
     except:
@@ -24,7 +27,3 @@ class Network:
       return self.client.recv(2048).decode()
     except socket.error as e:
       print(e)
-
-n = Network()
-print(n.send("THIS IS A MESSAGE!"))
-print(n.send("THIS IS A SECOND MESSAGE!!"))
